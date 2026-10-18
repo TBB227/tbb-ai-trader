@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1220">
+<title>TBB AI Trader — Prototype 0.1</title>
+<style>
+:root{--bg:#0b1220;--panel:#121d30;--panel2:#17243a;--text:#edf3ff;--muted:#9aabc5;--gold:#f4c15d;--line:#263650;--green:#49d6a0;--red:#ff7f88}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#0b1220,#101b2d 55%,#0b1220);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:22px 18px 16px;border-bottom:1px solid var(--line);background:#0b1220cc;position:sticky;top:0;z-index:2;backdrop-filter:blur(12px)}
+.wrap{max-width:1000px;margin:auto} .brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#ffe49b,#c58b25);color:#172033;font-weight:900;display:grid;place-items:center;font-size:20px}.brand h1{font-size:19px;margin:0}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}
+main{max-width:1000px;margin:0 auto;padding:20px 16px 40px}.hero{padding:22px;border:1px solid #574a2d;border-radius:20px;background:radial-gradient(ellipse at top right,#3a301c 0,transparent 60%),var(--panel);margin-bottom:18px}.eyebrow{color:var(--gold);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.12em}.hero h2{font-size:clamp(25px,5vw,36px);line-height:1.1;margin:9px 0}.hero p{color:var(--muted);max-width:620px;margin:0 0 16px}.pill{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:5px 10px;font-size:12px;color:var(--muted);margin:3px 4px 0 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:17px;min-width:0}.card h3{margin:0 0 12px;font-size:17px}.sub{color:var(--muted);font-size:13px}.metric{font-size:25px;font-weight:800;margin:4px 0}.gold{color:var(--gold)}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.field{margin:12px 0}.field label{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}input,select{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:#0b1424;color:var(--text);font:inherit}button{border:0;border-radius:11px;background:var(--gold);color:#172033;font-weight:800;padding:11px 15px;font:inherit;cursor:pointer}button.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text)}button.danger{background:#43232c;color:#ffdce0;border:1px solid #713a44}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.result{background:#0b1424;border:1px solid var(--line);padding:12px;border-radius:12px;margin-top:12px}.result strong{font-size:20px}.bar{height:8px;background:#25344a;border-radius:99px;overflow:hidden;margin:10px 0}.bar span{display:block;height:100%;width:62%;background:linear-gradient(90deg,#d89d31,#ffe49b)}.tag{font-size:11px;color:var(--green);background:#16392f;padding:4px 8px;border-radius:99px}.warning{font-size:12px;color:#f6d99a;border-left:3px solid var(--gold);padding:8px 10px;background:#2a2519;border-radius:0 8px 8px 0;margin-top:12px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}th,td{text-align:left;padding:9px 5px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600}.empty{color:var(--muted);padding:14px 0}.footer{color:var(--muted);font-size:12px;text-align:center;margin:22px 0 0}.hidden{display:none}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.hero{padding:18px}.card{padding:15px}header{position:static}}
+</style>
+</head>
+<body>
+<header><div class="wrap brand"><div class="logo">T</div><div><h1>TBB AI Trader</h1><p>Prototype 0.1 · Learn, plan, review</p></div></div></header>
+<main>
+<section class="hero">
+  <div class="eyebrow">Your trading workspace</div>
+  <h2>Trade with a plan.<br><span class="gold">Protect your capital.</span></h2>
+  <p>A beginner-friendly practice dashboard for XAU/USD (Gold). Explore a simple EMA pullback idea, calculate example risk, and keep a demo journal.</p>
+  <span class="pill">Demo prototype</span><span class="pill">Mobile-friendly</span><span class="pill">No broker connection</span>
+</section>
+<div class="grid">
+<section class="card">
+  <div class="row"><h3>Dashboard</h3><span class="tag">Practice mode</span></div>
+  <div class="sub">Market watchlist</div>
+  <div class="row" style="margin-top:12px"><div><strong>XAU/USD</strong><div class="sub">Gold / US Dollar</div></div><div style="text-align:right"><div class="metric gold">—</div><div class="sub">Live price not connected</div></div></div>
+  <div class="bar"><span></span></div>
+  <div class="row"><span class="sub">Strategy</span><strong>EMA + Pullback</strong></div>
+  <div class="row"><span class="sub">Preferred charts</span><strong>M5 context · M1 entry</strong></div>
+  <div class="warning">This prototype does not fetch live prices or place trades. The chart bar above is decorative.</div>
+</section>
+<section class="card">
+  <h3>Strategy preview</h3>
+  <p class="sub">A learning checklist, not a guaranteed signal.</p>
+  <div class="row"><span>1. Trend filter</span><span class="pill">EMA 50 / EMA 200</span></div>
+  <div class="row" style="margin-top:10px"><span>2. Wait for pullback</span><span class="pill">Near EMA 50</span></div>
+  <div class="row" style="margin-top:10px"><span>3. Confirmation</span><span class="pill">Candle closes</span></div>
+  <div class="row" style="margin-top:10px"><span>4. Risk plan</span><span class="pill">Stop-loss first</span></div>
+  <div class="warning">Avoid entering during major news spikes or when spread is unusually wide. Backtest and demo-test before risking money.</div>
+</section>
+<section class="card">
+  <h3>Demo risk calculator</h3>
+  <p class="sub">Estimate the cash amount at risk. This does not calculate gold lot size because broker contract specifications vary.</p>
+  <div class="field"><label for="balance">Account balance (account currency)</label><input id="balance" type="number" min="0" step="any" value="100"></div>
+  <div class="field"><label for="risk">Risk per trade (%)</label><select id="risk"><option value="0.25">0.25%</option><option value="0.5" selected>0.5%</option><option value="1">1%</option><option value="2">2%</option></select></div>
+  <div class="result"><div class="sub">Planned maximum loss (example)</div><strong id="riskCash">0.50</strong><div class="sub" id="riskNote">0.5% of 100</div></div>
+  <div class="warning">Risk is not the same as expected loss. Slippage, gaps, commissions and spread can increase the final loss.</div>
+</section>
+<section class="card">
+  <h3>Demo trade journal</h3>
+  <p class="sub">Entries are stored only in this browser on this device.</p>
+  <div class="field"><label for="side">Direction</label><select id="side"><option>Buy</option><option>Sell</option></select></div>
+  <div class="field"><label for="setup">Setup / reason</label><input id="setup" maxlength="100" placeholder="e.g. M5 uptrend, M1 pullback"></div>
+  <div class="field"><label for="outcome">Result (account currency)</label><input id="outcome" type="number" step="any" placeholder="e.g. 2.50 or -1.00"></div>
+  <div class="actions"><button id="addTrade">Add demo entry</button><button class="secondary" id="clearTrades">Clear journal</button></div>
+  <div id="journal"><p class="empty">No demo entries yet. Add one above to begin.</p></div>
+</section>
+</div>
+<p class="footer">TBB AI Trader · Prototype 0.1 · Educational use only. Not financial advice. Not connected to MT5, a broker, live market data, or AI services.</p>
+</main>
+<script>
+const balance=document.getElementById('balance'), risk=document.getElementById('risk'), riskCash=document.getElementById('riskCash'), riskNote=document.getElementById('riskNote');
+function updateRisk(){const b=Math.max(0,Number(balance.value)||0),r=Number(risk.value)||0;const amount=b*r/100;riskCash.textContent=amount.toFixed(2);riskNote.textContent=`${r}% of ${b.toLocaleString()}`;}
+balance.addEventListener('input',updateRisk);risk.addEventListener('change',updateRisk);updateRisk();
+const key='tbb_ai_trader_demo_journal_v01';
+function getTrades(){try{return JSON.parse(localStorage.getItem(key)||'[]')}catch(e){return []}}
+function saveTrades(t){try{localStorage.setItem(key,JSON.stringify(t));return true}catch(e){alert('This browser could not save the journal.');return false}}
+function render(){const trades=getTrades(),el=document.getElementById('journal');if(!trades.length){el.innerHTML='<p class="empty">No demo entries yet. Add one above to begin.</p>';return;}let total=trades.reduce((s,t)=>s+t.result,0);el.innerHTML=`<div class="row" style="margin-top:14px"><span class="sub">${trades.length} demo entr${trades.length===1?'y':'ies'}</span><strong class="${total>=0?'':'gold'}">Net: ${total.toFixed(2)}</strong></div><div style="overflow-x:auto"><table><thead><tr><th>Date</th><th>Side</th><th>Setup</th><th>Result</th></tr></thead><tbody>${trades.slice().reverse().map(t=>`<tr><td>${t.date}</td><td>${t.side}</td><td>${escapeText(t.setup||'—')}</td><td>${t.result.toFixed(2)}</td></tr>`).join('')}</tbody></table></div>`}
+function escapeText(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+document.getElementById('addTrade').addEventListener('click',()=>{const raw=document.getElementById('outcome').value;if(raw.trim()===''){alert('Enter a demo result first.');return;}const result=Number(raw);if(!Number.isFinite(result)){alert('Enter a valid number.');return;}const t=getTrades();t.push({date:new Date().toLocaleDateString(),side:document.getElementById('side').value,setup:document.getElementById('setup').value.trim(),result});if(saveTrades(t)){document.getElementById('outcome').value='';render();}});
+document.getElementById('clearTrades').addEventListener('click',()=>{if(confirm('Clear all demo journal entries stored in this browser?')){saveTrades([]);render();}});
+render();
+</script>
+</body>
+</html>
